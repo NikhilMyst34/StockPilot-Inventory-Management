@@ -1,0 +1,1 @@
+{% extends 'base.html' %}{% block heading %}Categories{% endblock %}{% block content %}<section class="panel"><h2>Product categories</h2><div class="category-grid">{% for c in categories %}<div class="category-card"><h3>{{c.name}}</h3><p>{{c.products|length}} products</p></div>{% endfor %}</div></section>{% endblock %}

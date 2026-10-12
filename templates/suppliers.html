@@ -1,0 +1,33 @@
+```html
+{% extends 'base.html' %}
+{% block heading %}Suppliers{% endblock %}
+{% block content %}
+<section class="panel">
+    <h2>Supplier directory</h2>
+    <a href="{{ url_for('add_supplier') }}">+ Add Supplier</a>
+
+
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Company</th>
+            <th>Phone</th>
+            <th>Products</th>
+            <th>Action</th>
+        </tr>
+
+        {% for s in suppliers %}
+        <tr>
+            <td>{{ s.name }}</td>
+            <td>{{ s.company_name }}</td>
+            <td>{{ s.phone }}</td>
+            <td>{{ s.products|length }}</td>
+            <td>
+                <a href="{{ url_for('edit_supplier', id=s.id) }}">Edit</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</section>
+{% endblock %}
+```
